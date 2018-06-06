@@ -314,7 +314,14 @@ export default class TableList extends PureComponent {
        render:val =>{
          if(val.status == 2){
           return (<div><div>{"投注："+val.amount}</div><div><Badge status={statusMap[val.status]} text={status[val.status]+":"+val.remark} /></div><div><Badge status={outcomeMap[val.outcome]} text={outcome[val.outcome]} /></div><div>{"盈利："+val.makemoney}</div></div>);
+         }else if(val.status==5){
+
+
+          return (<div><div>{"投注："+val.amount}</div><div><Popconfirm title="是否确认系统对该订单的修改?" onConfirm={()=>this.handleConfirm(val)} onCancel={()=>this.handleCancle(val)} okText="确认订单" cancelText="取消订单">
+          <Button type="primary">确认订单</Button>
+    </Popconfirm></div><div><Badge status={outcomeMap[val.outcome]} text={outcome[val.outcome]} /></div><div>{"盈利："+val.makemoney}</div></div>);
          }else{
+
           return (<div><div>{"投注："+val.amount}</div><div><Badge status={statusMap[val.status]} text={status[val.status]} /></div><div><Badge status={outcomeMap[val.outcome]} text={outcome[val.outcome]} /></div><div>{"盈利："+val.makemoney}</div></div>);
          }
          

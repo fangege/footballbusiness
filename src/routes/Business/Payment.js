@@ -29,8 +29,8 @@ const getValue = obj =>
   Object.keys(obj)
     .map(key => obj[key])
     .join(',');
-    const optMap = ['default', 'processing', 'success', 'error','error'];
-    const opt = ['未知', '充值', '消费', '盈利','提款'];
+    const optMap = ['default', 'processing', 'success', 'error','error','error'];
+    const opt = ['未知', '充值', '消费', '盈利','提款','回滚'];
 
  
     const PaymentDetailModal = props => {
@@ -46,7 +46,6 @@ const getValue = obj =>
             <Description term="金额">{formValue.amount}</Description>
             <Description term="余额">{formValue.balance}</Description>
             <Description term="时间">{moment(formValue.createtime).format('YYYY-MM-DD HH:mm:ss')}</Description>
-   
             <Description term="备注">{formValue.remark}</Description>
           </DescriptionList>
           <Divider style={{ marginBottom: 32 }} />
